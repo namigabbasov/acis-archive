@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ask the Archive — ACIS Digital Archive</title>
+<meta name="description" content="Ask questions about the ACIS archival collection using the AI-assisted discovery prototype." />
+<link rel="stylesheet" href="css/style.css?v=25" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="institutional-bar">
+    <div class="wrap institutional-bar__inner">
+      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
+      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
+    </div>
+  </div>
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+    <div class="wrap">
+      <ul class="primary-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="browse.html">Browse Archive</a></li>
+        <li><a href="ask.html" aria-current="page">Ask the Archive</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+        Menu
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap page-header">
+    <p class="eyebrow">Ask the Archive</p>
+    <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem);">Ask questions about the ACIS archival collection.</h2>
+    <p>Use natural language to explore the collection. This interface simulates AI-assisted discovery using the prototype's mock archival records.</p>
+  </div>
+
+  <div class="wrap section-tight">
+
+    <form id="ask-form" class="ask-form">
+      <label class="visually-hidden" for="ask-input">Ask a question about the ACIS archive</label>
+      <textarea id="ask-input" placeholder="Ask a question about the ACIS archive…" rows="2"></textarea>
+      <button type="submit" class="btn btn-primary">Ask</button>
+    </form>
+
+    <p class="eyebrow" style="margin-top:2rem;">Example Questions</p>
+    <ul class="example-questions" id="example-questions">
+      <li><button type="button" data-question="What did ACIS discuss about interoperability?">What did ACIS discuss about interoperability?</button></li>
+      <li><button type="button" data-question="What issues were discussed in the meeting notes?">What issues were discussed in the meeting notes?</button></li>
+      <li><button type="button" data-question="Find letters related to standards and interoperability.">Find letters related to standards and interoperability.</button></li>
+      <li><button type="button" data-question="What were the major concerns raised by ACIS?">What were the major concerns raised by ACIS?</button></li>
+    </ul>
+
+    <div id="ask-result"></div>
+
+    <span class="placeholder-note" style="margin-top:1.6rem;">AI-assisted discovery prototype — responses are illustrative and do not represent production search results</span>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__id">ACIS Digital Archive</p>
+        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="site-footer__nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="browse.html">Browse Archive</a></li>
+          <li><a href="ask.html">Ask the Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/ask.js"></script>
+</body>
+</html>

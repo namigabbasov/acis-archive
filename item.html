@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title id="page-title">Archival Item — ACIS Digital Archive</title>
+<link rel="stylesheet" href="css/style.css?v=25" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="institutional-bar">
+    <div class="wrap institutional-bar__inner">
+      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
+      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
+    </div>
+  </div>
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+    <div class="wrap">
+      <ul class="primary-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="browse.html" aria-current="page">Browse Archive</a></li>
+        <li><a href="ask.html">Ask the Archive</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+        Menu
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+  <div class="wrap page-header" id="item-page-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumb">
+      <a href="index.html">Home</a> <span aria-hidden="true">/</span>
+      <a href="browse.html" id="breadcrumb-collection">Browse Archive</a> <span aria-hidden="true">/</span>
+      <span id="breadcrumb-current">Item</span>
+    </nav>
+  </div>
+
+  <div class="wrap section-tight" id="item-content">
+    <!-- Populated by js/item.js -->
+  </div>
+
+  <div class="wrap section-tight" id="item-not-found" hidden>
+    <div class="empty-state">
+      <h3>Item not found</h3>
+      <p>This archival item could not be located in the prototype dataset.</p>
+      <a class="btn btn-secondary" href="browse.html">Return to Browse Archive</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__id">ACIS Digital Archive</p>
+        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="site-footer__nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="browse.html">Browse Archive</a></li>
+          <li><a href="ask.html">Ask the Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/item.js"></script>
+</body>
+</html>

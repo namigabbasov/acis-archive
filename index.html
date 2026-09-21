@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ACIS Digital Archive — American Committee for Interoperable Systems</title>
+<meta name="description" content="Digital archive of materials documenting the history and advocacy of the American Committee for Interoperable Systems (ACIS), Stanford Law School." />
+<link rel="stylesheet" href="css/style.css?v=25" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="institutional-bar">
+    <div class="wrap institutional-bar__inner">
+      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
+      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
+    </div>
+  </div>
+  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+    <div class="wrap">
+      <ul class="primary-nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="browse.html">Browse Archive</a></li>
+        <li><a href="ask.html">Ask the Archive</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+        Menu
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <div class="hero__content">
+        <h2 class="hero__title">American Committee for Interoperable Systems</h2>
+        <p class="hero__desc">Explore archival materials documenting the history, activities, advocacy, and intellectual work of the American Committee for Interoperable Systems.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="browse.html">Explore the Archive</a>
+          <a class="btn btn-secondary" href="ask.html">Ask the Archive</a>
+        </div>
+      </div>
+      <div class="hero__graphic" aria-hidden="true">
+        <span class="hero__card hero__card--1"></span>
+        <span class="hero__card hero__card--2"></span>
+        <span class="hero__card hero__card--3">
+          <span class="hero__card-tab"></span>
+          <span class="hero__card-line hero__card-line--title"></span>
+          <span class="hero__card-line hero__card-line--body"></span>
+          <span class="hero__card-line hero__card-line--short"></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap two-col">
+      <div>
+        <p class="eyebrow">About the Archive</p>
+        <h2 style="font-size:1.6rem;">A record of ACIS's history and advocacy</h2>
+        <p class="lede">This digital archive brings together historical materials associated with the American Committee for Interoperable Systems, including meeting notes, correspondence, amicus briefs, and formal comments. Materials are organized to support research into the organization's activities and its role in debates over software interoperability.</p>
+        <a class="text-link" href="about.html">Learn more about ACIS →</a>
+      </div>
+      <div class="panel">
+        <p class="eyebrow" style="margin-bottom:0.6rem;">Prototype note</p>
+        <p style="color:var(--color-charcoal); font-size:0.95rem; margin:0;">This site is a front-end prototype built to demonstrate the intended look, feel, and navigation of the future ACIS Digital Archive. It uses mock archival records and does not connect to Omeka or the Stanford Digital Repository.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="explore-heading">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Explore the Archive</p>
+        <h2 id="explore-heading" style="font-size:1.6rem; margin-bottom:0;">Browse the ACIS collection by material type.</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="category-grid" id="category-grid">
+        <!-- Populated by js/home.js -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="ask-heading">
+    <div class="wrap two-col">
+      <div class="panel panel--cardinal">
+        <p class="eyebrow">Ask the Archive</p>
+        <h2 id="ask-heading" style="font-size:1.5rem;">Have a question about the ACIS collection?</h2>
+        <p style="color:var(--color-charcoal); max-width: 60ch;">Use the archive's AI-assisted discovery interface to explore the collection and find relevant archival materials.</p>
+        <a class="btn btn-primary" href="ask.html" style="margin-top:0.75rem;">Ask the Archive →</a>
+      </div>
+      <div class="sample-question">
+        <p class="sample-question__label">Try asking</p>
+        <p class="sample-question__text">“What did ACIS discuss about interoperability?”</p>
+        <a class="text-link" href="ask.html?q=What+did+ACIS+discuss+about+interoperability%3F">See the answer →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div>
+        <p class="site-footer__id">ACIS Digital Archive</p>
+        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul class="site-footer__nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="browse.html">Browse Archive</a></li>
+          <li><a href="ask.html">Ask the Archive</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="site-footer__bottom">
+      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+    </div>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
