@@ -39,7 +39,8 @@ acis-archive/
     ├── data.js     Collection data: series (ACIS_COLLECTIONS) and items (RAW_ITEMS)
     ├── ui.js       Shared helpers: thumbnails, result rows/cards, citations
     ├── main.js     Mobile navigation
-    ├── config.js   Site settings (AI discovery endpoint)
+    ├── config.js   Site settings (AI discovery and contact endpoints)
+    ├── contact.js  Contact form
     ├── home.js     Homepage sections
     ├── browse.js   Search, facets, sort, list/gallery view, pagination
     ├── item.js     Item page rendering
@@ -101,6 +102,21 @@ endpoint.
   `OPTIONS` preflight requests and return `Access-Control-Allow-Origin`
   for the site's domain (Lambda function URLs can set CORS in their
   configuration).
+
+### Contact form (optional endpoint)
+
+`contact.html` has a feedback form. With `contactEndpoint` empty in
+`js/config.js`, submitting opens the visitor's email app addressed to
+`contactEmail`, with the message already filled in. To receive messages
+directly, set `contactEndpoint` to a Lambda URL that accepts:
+
+```json
+{ "name": "...", "email": "...", "affiliation": "...", "topic": "...", "message": "...", "page": "<url>" }
+```
+
+Return any 2xx status on success. Anything else shows an error with the
+email address as a fallback. The same CORS rules as the AI discovery API
+apply.
 
 ### 2. PDFs from SDR
 
