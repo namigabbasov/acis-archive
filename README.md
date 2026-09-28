@@ -1,151 +1,133 @@
-# ACIS Digital Archive — Front-End Prototype
+# ACIS Digital Archive
 
-A front-end-only prototype for the American Committee for Interoperable
-Systems (ACIS) Digital Archive, built for the Robert Crown Law Library,
-Stanford Law School. This prototype is intended to demonstrate the look,
-feel, navigation, and browsing experience of the eventual production site,
-which will be built on **Omeka Classic** with digital objects hosted in the
-**Stanford Digital Repository (SDR)**.
+The digital archive of the American Committee for Interoperable Systems
+(ACIS) records, 1991–2001, published by the Robert Crown Law Library,
+Stanford Law School.
 
-No backend, database, authentication, or external APIs are used. All
-content is mock data defined in `js/data.js`.
+- Static site: plain HTML, CSS, and JavaScript, with no build step or framework
+- Hosting: **AWS Amplify**
+- Digital objects: **Stanford Digital Repository (SDR)**
+- Ask the Archive: **AI discovery API**, an AWS Lambda endpoint
 
 ---
 
-## Running it locally
+## Running locally
 
-Because the pages use `fetch`-free, same-origin JavaScript (`<script src>`
-tags and relative links only), you can open `index.html` directly in most
-browsers. However, some browsers restrict certain JavaScript behavior on
-the `file://` protocol, so the most reliable way to preview the prototype
-is with a simple local static server:
-
-### Option A — Python (built in on most machines)
+Serve the repository root with any static server:
 
 ```bash
-cd acis-archive
-python3 -m http.server 8000
-```
-
-Then open **http://localhost:8000** in your browser.
-
-### Option B — Node.js
-
-```bash
-cd acis-archive
+python3 -m http.server 8000     # then open http://localhost:8000
+# or
 npx serve .
 ```
 
-(or any static server of your choice, e.g. `npx http-server`)
-
-### Option C — VS Code "Live Server" extension
-
-Open the folder in VS Code, right-click `index.html`, and choose
-**"Open with Live Server."**
-
-No build step, package installation, or compilation is required.
-
----
+Opening `index.html` directly from disk also works in most browsers.
 
 ## Project structure
 
 ```
 acis-archive/
-├── index.html          Home page
-├── about.html           About page (About ACIS / archive / collection / access)
-├── browse.html           Browse Archive — also serves as the "collection" page
-│                          when visited with ?type=<collection-slug>
-├── item.html              Individual archival item page (?id=<item-id>)
-├── ask.html                Ask the Archive (simulated AI-assisted discovery)
-├── contact.html             Contact page
-├── css/
-│   └── style.css            All styles — Stanford Cardinal palette, typography,
-│                              layout, responsive rules, focus states
-├── js/
-│   ├── data.js                Mock archival records + collections (Omeka-style
-│   │                            Items / Collections) — the only "database"
-│   ├── main.js                  Shared behavior: mobile nav toggle
-│   ├── home.js                    Renders the homepage category grid
-│   ├── browse.js                   Search, filter, sort, and collection-page logic
-│   ├── item.js                      Renders a single item's metadata + SDR panel
-│   └── ask.js                        Simulated "Ask the Archive" answer generation
-└── README.md
+├── index.html      Home: search, series, featured items, browse by date
+├── browse.html     Search and faceted browse; a series page with ?type=<slug>
+├── item.html       Item record (?id=<item-id>): viewer, metadata, citation
+├── about.html      Historical note, legacy of ACIS, scope, arrangement, access
+├── ask.html        Ask the Archive (AI discovery)
+├── contact.html    Contact
+├── css/style.css   All styles (Stanford identity palette and type)
+├── images/logo.png
+└── js/
+    ├── data.js     Collection data: series (ACIS_COLLECTIONS) and items (RAW_ITEMS)
+    ├── ui.js       Shared helpers: thumbnails, result rows/cards, citations
+    ├── main.js     Mobile navigation
+    ├── config.js   Site settings (AI discovery endpoint)
+    ├── home.js     Homepage sections
+    ├── browse.js   Search, facets, sort, list/gallery view, pagination
+    ├── item.js     Item page rendering
+    ├── about.js    Series table on the About page
+    └── ask.js      Ask the Archive: question → answer with cited sources
 ```
 
-## User flows to try
+Browse state (query, facets, sort, view, page) is kept in the URL, so
+searches can be bookmarked and shared.
 
-- **Home → Browse Archive → Collection → Item → SDR placeholder**
-  Click any of the five category cards on the homepage (e.g. "Meeting
-  Notes"). This opens `browse.html?type=meeting-notes`, which behaves as a
-  dedicated collection page (its own heading, description, and item list).
-  Click any item's title or "View item →" to open its detail page, then
-  click "View Document in Stanford Digital Repository →" to see the
-  placeholder SDR link.
+## Deployment (AWS Amplify)
 
-- **Home → Ask the Archive → Ask a question → See mock answer → Click a
-  source → Item page**
-  On `ask.html`, click one of the four example questions (this fills the
-  question box), then click **Ask**. A simulated answer and a list of
-  matching source items appears; clicking a source opens that item's page.
+Connect the repository in Amplify Hosting, leave the build command
+empty, and set the output directory to the repository root. Any push
+to the connected branch redeploys the site.
 
-- **Search and filter**
-  On `browse.html`, try searching "interoperability," filtering by
-  material type, setting a date range, or changing the sort order. Use
-  "Clear all filters" to reset. The result count updates live, and the
-  current filter state is reflected in the URL so results are shareable.
+## Remaining integrations
 
-## Notes on the mock dataset
+### 1. AI discovery API (Lambda)
 
-The real ACIS collection contains 95 items across five material types
-(12 Amicus Briefs, 13 Meeting Notes, 30 Letters, 20 Comments, 20 Other).
-This prototype includes ~40 representative mock records so the browsing,
-search, and filtering experience can be fully exercised, while headers and
-counts throughout the UI display the real, official collection totals —
-per the project brief. Swap in real Omeka/SDR-sourced data by replacing
-the contents of `js/data.js` with the same shape (see the `RAW_ITEMS`
-array and helper functions at the bottom of that file).
+Set the endpoint in `js/config.js`:
 
-## Omeka Classic mapping
+```js
+window.ACIS_CONFIG = {
+  askEndpoint: "https://<lambda-function-url-or-api-gateway-route>",
+  askTimeoutMs: 30000,
+};
+```
 
-This prototype's information architecture intentionally mirrors Omeka
-Classic concepts so it can be re-implemented as an Omeka theme without
-restructuring:
+With `askEndpoint` empty, Ask the Archive falls back to a local keyword
+match over `js/data.js`. Once it's set, every question goes to the
+endpoint.
 
-| Prototype concept                     | Omeka Classic concept                  |
-|----------------------------------------|-----------------------------------------|
-| `ACIS_COLLECTIONS` in `data.js`         | Collections                            |
-| `ACIS_ITEMS` in `data.js`               | Items                                   |
-| Item metadata table on `item.html`      | Item's Dublin Core metadata fields      |
-| `browse.html` (no `?type=`)             | "Browse Items" page                     |
-| `browse.html?type=<slug>`               | A Collection's browse/show page         |
-| `item.html?id=<id>`                     | An Item's show page                     |
-| `about.html`, `contact.html`            | Omeka "Simple Pages"                    |
-| Header / footer navigation              | Theme navigation                        |
-| SDR permanent URL on item page          | An Item's linked external digital object (e.g. via a custom element/plugin field pointing to the SDR PURL) |
+**Request** (`POST`, `Content-Type: application/json`):
 
-When the production Omeka theme is built, `js/data.js` and the client-side
-search/filter logic here can be replaced with server-rendered Omeka
-queries, while the CSS in `css/style.css` can be adapted largely as-is
-into the Omeka theme's stylesheet.
+```json
+{ "question": "What positions did ACIS take on reverse engineering?" }
+```
+
+**Response** (`200`, JSON):
+
+```json
+{
+  "answer": "Plain text. Blank lines separate paragraphs. [1] and [2] refer to sources by position.",
+  "sources": [{ "id": "<item id>" }, "<item id>"]
+}
+```
+
+- `answer` is treated as plain text and escaped before display. `[n]`
+  becomes a link to source *n*.
+- `sources` are item IDs from `js/data.js` (`id` field, also the
+  `item.html?id=` value). Unknown IDs are ignored.
+- Return an empty `answer` and empty `sources` when nothing relevant is
+  found. The page then shows "No matching records found".
+- A non-2xx status, invalid JSON, or no response within `askTimeoutMs`
+  shows an "unavailable" message. The page never falls back to made-up
+  results.
+- If the endpoint is on a different origin from the site, it must answer
+  `OPTIONS` preflight requests and return `Access-Control-Allow-Origin`
+  for the site's domain (Lambda function URLs can set CORS in their
+  configuration).
+
+### 2. PDFs from SDR
+
+Each item's `purl` field (`https://purl.stanford.edu/<druid>`) links
+the record to its SDR object.
+
+- **Viewer**: in `js/item.js`, replace the drawn page in `.viewer` with
+  SDR's embed:
+  `<iframe src="https://embed.stanford.edu/iframe?url=<purl>" …>`.
+  SDR chooses the viewer from the object type: document deposits get a
+  PDF viewer, and media deposits get a media player that lists PDFs
+  only as downloads.
+- **Thumbnails**: `thumbMarkup()` in `js/ui.js` can use SDR IIIF image
+  URLs (`https://stacks.stanford.edu/image/iiif/<druid>%2F<file>/full/!300,300/0/default.jpg`)
+  where available.
+
+### 3. Collection data
+
+`js/data.js` holds sample records. Before launch, replace `RAW_ITEMS`
+with the real catalog (title, type, date, dateSort, pages, description,
+keywords, and the SDR druid). The series totals shown across the site
+come from `officialCount` in `ACIS_COLLECTIONS`: 12 Amicus Briefs,
+13 Meeting Notes, 30 Letters, 20 Comments, and 20 Other.
 
 ## Accessibility
 
-- Semantic HTML landmarks (`header`, `nav`, `main`, `footer`)
-- Logical heading hierarchy on every page
-- Visible focus states on all interactive elements
-- Skip-to-content link on every page
-- Descriptive link text ("View item →", "View Document in Stanford
-  Digital Repository →") rather than "click here"
-- Labeled form fields for search and filters
-- Mobile navigation is a real, keyboard-operable `<button>` with
-  `aria-expanded`
-- Respects `prefers-reduced-motion`
-
-## What this prototype is *not*
-
-- It is **not** connected to Omeka, the Stanford Digital Repository, or
-  any external API or database.
-- The "Ask the Archive" answers are simulated from local mock data — no
-  AI API is called.
-- Historical descriptions of ACIS on the About page are explicitly marked
-  as placeholder content, since no verified historical copy was provided.
+- Semantic landmarks, a logical heading order, and a skip link on every page
+- Visible focus states; keyboard-operable navigation, facets, and viewer controls
+- Labelled form fields; filter changes announced with `aria-live`
+- Respects `prefers-reduced-motion`; includes print styles

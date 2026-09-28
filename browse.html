@@ -3,109 +3,133 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title id="page-title">Browse Archive — ACIS Digital Archive</title>
-<meta name="description" content="Search and browse the ACIS Digital Archive collection." />
-<link rel="stylesheet" href="css/style.css?v=25" />
+<title id="page-title">Browse the Collection | ACIS Digital Archive</title>
+<meta name="description" content="Search and browse the ACIS Digital Archive by series, date, and keyword." />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="apple-touch-icon" href="images/favicon.png" />
+<link rel="stylesheet" href="css/style.css?v=47" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="institutional-bar">
-    <div class="wrap institutional-bar__inner">
-      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
-      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
-    </div>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="masthead__brand" href="index.html">
+      <img class="masthead__logo" src="images/logo.png" alt="Stanford Law School, Robert Crown Law Library" />
+      <span class="masthead__title">
+        <span class="masthead__name">ACIS Digital Archive</span>
+        <span class="masthead__sub">Records of the American Committee for Interoperable Systems</span>
+      </span>
+    </a>
+      <form class="header-search" action="browse.html" role="search">
+        <label class="visually-hidden" for="header-q">Search the collection</label>
+        <input type="search" id="header-q" name="q" placeholder="Search the collection" />
+        <button type="submit" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
   </div>
-  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
-    <div class="wrap">
-      <ul class="primary-nav__list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="browse.html" aria-current="page">Browse Archive</a></li>
-        <li><a href="ask.html">Ask the Archive</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
-        Menu
-      </button>
-    </div>
-  </nav>
 </header>
+
+<nav class="primary-nav" id="primary-nav" aria-label="Primary">
+  <div class="wrap">
+    <ul class="primary-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html" aria-current="page">Browse</a></li>
+        <li><a href="ask.html">Ask the Archive</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+      Menu
+    </button>
+  </div>
+</nav>
 
 <main id="main">
 
-  <div class="wrap page-header">
-    <nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumb">
-      <a href="index.html">Home</a> <span aria-hidden="true">/</span> <span id="breadcrumb-current">Browse Archive</span>
-    </nav>
-    <p class="eyebrow" id="collection-eyebrow">Browse Archive</p>
-    <h2 id="page-heading" style="font-size:clamp(1.7rem,3.4vw,2.3rem);">Explore the ACIS archival collection.</h2>
-    <p id="page-description">Search across the full collection, or filter by material type, date, and more.</p>
-  </div>
-
-  <div class="wrap section-tight">
-
-    <form id="search-form" class="search-bar" role="search">
-      <label class="visually-hidden" for="search-input">Search archival materials</label>
-      <input type="search" id="search-input" name="q" placeholder="Search archival materials…" />
-      <button type="submit" class="btn btn-primary">Search</button>
-    </form>
-
-    <form id="filter-form">
-      <div class="filters">
-        <div class="filter-field">
-          <label for="filter-type">Collection / material type</label>
-          <select id="filter-type" name="type">
-            <option value="all">All</option>
-            <option value="amicus-briefs">Amicus Briefs</option>
-            <option value="meeting-notes">Meeting Notes</option>
-            <option value="letters">Letters</option>
-            <option value="comments">Comments</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <div class="filter-field">
-          <label for="date-from">Date range</label>
-          <div class="filter-daterange">
-            <input type="date" id="date-from" name="from" aria-label="From date" />
-            <input type="date" id="date-to" name="to" aria-label="To date" />
-          </div>
-        </div>
-
-        <div class="filter-field">
-          <label for="filter-sort">Sort by</label>
-          <select id="filter-sort" name="sort">
-            <option value="relevance">Relevance</option>
-            <option value="date-desc">Date (Newest)</option>
-            <option value="date-asc">Date (Oldest)</option>
-            <option value="title">Title</option>
-          </select>
-        </div>
-
-        <div class="filter-field filter-actions">
-          <button type="button" id="clear-filters" class="link-button">Clear all filters</button>
+  <div class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li id="crumb-browse"><span id="breadcrumb-current">Browse the Collection</span></li>
+        </ol>
+      </nav>
+      <div class="series-intro">
+        <div>
+          <p class="label" id="collection-eyebrow" hidden></p>
+          <h1 id="page-heading">Browse the Collection</h1>
+          <p class="page-head__desc" id="page-description">Search across all series, or narrow results by series and date.</p>
+          <dl class="series-intro__facts" id="series-facts" hidden></dl>
         </div>
       </div>
-    </form>
-
-    <div class="results-summary">
-      <span class="results-summary__count" id="results-count">95 items</span>
-      <span class="results-summary__total" id="results-note">Showing digitized sample items for this prototype.</span>
+      <form id="search-form" class="browse-search" role="search">
+        <label class="visually-hidden" for="search-input">Search the collection</label>
+        <input type="search" id="search-input" name="q" placeholder="Search titles, descriptions, and subjects" />
+        <button type="submit" class="btn btn-primary">Search</button>
+      </form>
     </div>
+  </div>
 
-    <ul class="record-list" id="record-list" aria-live="polite">
-      <!-- Populated by js/browse.js -->
-    </ul>
+  <div class="wrap browse-layout">
+    <aside class="facets" aria-label="Refine results">
+      <div class="facets__head">
+        <h2>Refine results</h2>
+        <button type="button" id="clear-filters" class="link-button">Clear all</button>
+      </div>
+      <fieldset class="facet">
+        <legend>Series</legend>
+        <div id="facet-series"></div>
+      </fieldset>
+      <fieldset class="facet">
+        <legend>Date</legend>
+        <div class="facet__range">
+          <label class="visually-hidden" for="year-from">From year</label>
+          <select id="year-from"></select>
+          <span>to</span>
+          <label class="visually-hidden" for="year-to">To year</label>
+          <select id="year-to"></select>
+        </div>
+      </fieldset>
+      <fieldset class="facet">
+        <legend>Decade</legend>
+        <div id="facet-decade"></div>
+      </fieldset>
+    </aside>
 
-    <div class="empty-state" id="empty-state" hidden>
-      <h3>No matching items</h3>
-      <p>Try a different search term, or clear your filters to see the full collection.</p>
-      <button type="button" id="empty-clear" class="btn btn-secondary">Clear all filters</button>
-    </div>
+    <section aria-labelledby="results-count">
+      <div class="toolbar">
+        <p class="toolbar__count" id="results-count" aria-live="polite"></p>
+        <div class="toolbar__controls">
+          <label>Sort
+            <select id="filter-sort">
+              <option value="relevance">Relevance</option>
+              <option value="date-asc">Date (oldest first)</option>
+              <option value="date-desc">Date (newest first)</option>
+              <option value="title">Title (A–Z)</option>
+            </select>
+          </label>
+          <label>Show
+            <select id="per-page"></select>
+          </label>
+          <div class="view-toggle" role="group" aria-label="View">
+            <button type="button" data-view="list" aria-pressed="true" title="List view"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span class="visually-hidden">List view</span></button>
+            <button type="button" data-view="grid" aria-pressed="false" title="Gallery view"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg><span class="visually-hidden">Gallery view</span></button>
+          </div>
+        </div>
+      </div>
+      <ul class="chips" id="chips" aria-label="Active filters"></ul>
 
+      <ul class="results" id="record-list"></ul>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <h2>No items match your search</h2>
+        <p>Check the spelling, try a broader term, or remove a filter.</p>
+        <button type="button" id="empty-clear" class="btn btn-secondary">Clear all filters</button>
+      </div>
+
+      <nav class="pagination" id="pagination" aria-label="Results pages"></nav>
+    </section>
   </div>
 
 </main>
@@ -114,27 +138,146 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p class="site-footer__id">ACIS Digital Archive</p>
-        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+        <h2>ACIS Digital Archive</h2>
+        <p>A digital collection of the Robert Crown Law Library, Stanford Law School. Digitized objects are preserved in the Stanford Digital Repository.</p>
       </div>
-      <nav aria-label="Footer">
-        <ul class="site-footer__nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="browse.html">Browse Archive</a></li>
+      <nav aria-label="Explore">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="browse.html?type=amicus-briefs">Amicus Briefs</a></li>
+          <li><a href="browse.html?type=letters">Letters</a></li>
           <li><a href="ask.html">Ask the Archive</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Using the collection">
+        <h2>Using the Collection</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#access">Access &amp; Use</a></li>
+          <li><a href="about.html#citing">Citing Materials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    </div>
-    <div class="site-footer__bottom">
-      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+      <div>
+        <h2><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></h2>
+        <address>559 Nathan Abbott Way<br />Stanford, CA 94305-8610<br /><a href="mailto:reference@law.stanford.edu">reference@law.stanford.edu</a><br />650-725-0800</address>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
-<script src="js/browse.js"></script>
+<footer class="sls-footer" aria-label="Stanford Law School">
+  <div class="wrap sls-footer__grid">
+    <div class="sls-footer__id">
+      <a class="sls-footer__wordmark" href="https://law.stanford.edu/">Stanford<br />Law School</a>
+      <address>Crown Quadrangle<br />559 Nathan Abbott Way<br />Stanford, CA 94305-8610</address>
+      <p class="sls-footer__phone"><b>Phone:</b> <a href="tel:+16507232465">650.723.2465</a><br /><b>Fax:</b> 650.725.0253</p>
+      <ul class="sls-footer__social">
+          <li><a href="https://x.com/stanfordlaw" aria-label="Follow Stanford Law School on X" title="Follow Stanford Law School on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5 19 19.5M19 4.5 5 19.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://www.facebook.com/StanfordLawSchool" aria-label="Follow Stanford Law School on Facebook" title="Follow Stanford Law School on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.youtube.com/user/stanfordlawschool" aria-label="Follow Stanford Law School on YouTube" title="Follow Stanford Law School on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" fill="currentColor"/><path d="m10 9 5 3-5 3z" fill="#2b2f31"/></svg></a></li>
+          <li><a href="https://instagram.com/stanfordlawschool/" aria-label="Follow Stanford Law School on Instagram" title="Follow Stanford Law School on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.8" cy="7.2" r="1.2" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/stanford-law-school" aria-label="Follow Stanford Law School on LinkedIn" title="Follow Stanford Law School on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8M6.5 6.2v.1M11 18v-4.6c0-1.9 1.1-3.1 2.7-3.1s2.3 1.1 2.3 3V18M11 10v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://law.stanford.edu/rss-feeds/" aria-label="Stanford Law School RSS feeds" title="Stanford Law School RSS feeds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11a8 8 0 0 1 8 8M5 5.5A13.5 13.5 0 0 1 18.5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="6" cy="18" r="1.6" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+      <nav aria-label="I am">
+        <h2>I am …</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/i-am-a-future-student/">Future Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-current-student/">Current Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-staff-member/">I am a Staff Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-faculty-member/">I am a Faculty Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-alum/">Alum</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-employer/">Employer</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-journalist/">Journalist</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="About">
+        <h2>About</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/about/">About SLS</a></li>
+          <li><a href="https://law.stanford.edu/aba-required-disclosures/">ABA-Required Disclosures</a></li>
+          <li><a href="https://law.stanford.edu/visiting-campus/">Visiting Campus</a></li>
+          <li><a href="https://www.stanford.edu/site/accessibility">Web Accessibility</a></li>
+          <li><a href="https://law.stanford.edu/website-feedback/">Website Feedback</a></li>
+          <li><a href="https://law.stanford.edu/giving/">Giving at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Education">
+        <h2>Education</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/education/degrees/">Degrees</a></li>
+          <li><a href="https://law.stanford.edu/education/courses/">Courses</a></li>
+          <li><a href="https://law.stanford.edu/education/jd-graduation-information/">JD Graduation Audit and Information</a></li>
+          <li><a href="https://law.stanford.edu/executive-education/">Executive Education</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/research/faculty-research/">Faculty Research</a></li>
+          <li><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></li>
+          <li><a href="https://law.stanford.edu/publications/">Publications</a></li>
+          <li><a href="https://law.stanford.edu/organizations/?page=1&amp;tax_and_terms=311">Student Journals</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Community and Careers">
+        <h2>Community</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/community/student-life/">Student Life</a></li>
+          <li><a href="https://law.stanford.edu/events">Events</a></li>
+          <li><a href="https://law.stanford.edu/directory/?tax_and_terms=1067&amp;page=1">Faculty Directory</a></li>
+          <li><a href="https://law.stanford.edu/organizations/">Organizations</a></li>
+        </ul>
+        <h2>Careers</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/careers/career-possibilities/">Legal Careers</a></li>
+          <li><a href="https://law.stanford.edu/office-of-human-resources/job-announcements/">Jobs at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="News and Media">
+        <h2>News &amp; Media</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/media/">News Center</a></li>
+          <li><a href="https://law.stanford.edu/press">Media Coverage</a></li>
+          <li><a href="https://law.stanford.edu/blog/">SLS Blogs</a></li>
+          <li><a href="https://law.stanford.edu/stanford-lawyer-magazine/">Stanford Lawyer Magazine</a></li>
+          <li><a href="https://law.stanford.edu/media/video-center/">Video Center</a></li>
+          <li><a href="https://law.stanford.edu/social-media/">Social Media Hub</a></li>
+          <li><a href="https://law.stanford.edu/media/sls-newsletters/">SLS Newsletters</a></li>
+        </ul>
+      </nav>
+  </div>
+</footer>
+
+<div class="global-footer">
+  <div class="wrap">
+    <a class="global-footer__brand" href="https://www.stanford.edu">Stanford<small>University</small></a>
+    <div class="global-footer__body">
+      <ul class="global-footer__primary">
+        <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+        <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+        <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+        <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+      </ul>
+      <ul class="global-footer__secondary">
+        <li><a href="https://www.stanford.edu/site/terms/">Terms of Use</a></li>
+        <li><a href="https://www.stanford.edu/site/privacy/">Privacy</a></li>
+        <li><a href="https://uit.stanford.edu/security/copyright-infringement">Copyright</a></li>
+        <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4">Trademarks</a></li>
+        <li><a href="https://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/">Non-Discrimination</a></li>
+        <li><a href="https://www.stanford.edu/site/accessibility">Accessibility</a></li>
+      </ul>
+      <p class="global-footer__copy">© Stanford University, Stanford, California 94305.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js?v=47"></script>
+<script src="js/ui.js?v=47"></script>
+<script src="js/main.js?v=47"></script>
+<script src="js/browse.js?v=47"></script>
 </body>
 </html>

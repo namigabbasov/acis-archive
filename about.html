@@ -3,105 +3,321 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>About — ACIS Digital Archive</title>
-<link rel="stylesheet" href="css/style.css?v=25" />
+<title id="page-title">About the Collection | ACIS Digital Archive</title>
+<meta name="description" content="Scope, arrangement, and terms of use for the American Committee for Interoperable Systems records." />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="apple-touch-icon" href="images/favicon.png" />
+<link rel="stylesheet" href="css/style.css?v=47" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="institutional-bar">
-    <div class="wrap institutional-bar__inner">
-      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
-      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
-    </div>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="masthead__brand" href="index.html">
+      <img class="masthead__logo" src="images/logo.png" alt="Stanford Law School, Robert Crown Law Library" />
+      <span class="masthead__title">
+        <span class="masthead__name">ACIS Digital Archive</span>
+        <span class="masthead__sub">Records of the American Committee for Interoperable Systems</span>
+      </span>
+    </a>
+      <form class="header-search" action="browse.html" role="search">
+        <label class="visually-hidden" for="header-q">Search the collection</label>
+        <input type="search" id="header-q" name="q" placeholder="Search the collection" />
+        <button type="submit" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
   </div>
-  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
-    <div class="wrap">
-      <ul class="primary-nav__list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" aria-current="page">About</a></li>
-        <li><a href="browse.html">Browse Archive</a></li>
-        <li><a href="ask.html">Ask the Archive</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
-        Menu
-      </button>
-    </div>
-  </nav>
 </header>
 
-<main id="main">
-  <div class="wrap page-header">
-    <p class="eyebrow">About</p>
-    <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem);">About ACIS</h2>
-    <span class="placeholder-note">This page is placeholder content, pending verified copy from the Robert Crown Law Library</span>
+<nav class="primary-nav" id="primary-nav" aria-label="Primary">
+  <div class="wrap">
+    <ul class="primary-nav__list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="ask.html">Ask the Archive</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+      Menu
+    </button>
   </div>
+</nav>
 
-  <div class="wrap section-tight">
-    <div class="about-list">
+<main id="main">
 
-      <div class="about-item">
-        <span class="about-item__num">01</span>
-        <div class="about-item__body">
-          <h2 id="about-acis">About the American Committee for Interoperable Systems</h2>
-          <p>The American Committee for Interoperable Systems (ACIS) was an organization involved in advocacy related to the interoperability of computer systems and software. Detailed historical background on the organization's founding, membership, and activities has not yet been finalized for this prototype and will be supplied ahead of the production launch.</p>
-        </div>
-      </div>
-
-      <div class="about-item">
-        <span class="about-item__num">02</span>
-        <div class="about-item__body">
-          <h2 id="about-archive">About the Digital Archive</h2>
-          <p>The ACIS Digital Archive is being developed by the Robert Crown Law Library at Stanford Law School to make historical materials associated with ACIS available for research. In production, the archive will be built on Omeka Classic, with digitized materials hosted in the Stanford Digital Repository (SDR).</p>
-        </div>
-      </div>
-
-      <div class="about-item">
-        <span class="about-item__num">03</span>
-        <div class="about-item__body">
-          <h2 id="about-collection">About the Collection</h2>
-          <p>The collection is organized into five material types: amicus briefs, meeting notes, letters, comments, and other organizational records. Together these materials document the committee's advocacy work and internal deliberations. Collection-level descriptions shown throughout this prototype are illustrative and will be refined by library staff prior to launch.</p>
-        </div>
-      </div>
-
-      <div class="about-item">
-        <span class="about-item__num">04</span>
-        <div class="about-item__body">
-          <h2 id="access-use">Access and Use</h2>
-          <p>Access and use terms for the ACIS collection — including any restrictions on reproduction or citation requirements — will be published here once finalized by the Robert Crown Law Library. Researchers with questions in the meantime should use the <a href="contact.html">Contact page</a>.</p>
-        </div>
-      </div>
-
+  <div class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Home</a></li><li><span aria-current="page">About the Collection</span></li></ol>
+      </nav>
+      <h1>About the Collection</h1>
+      <p class="page-head__desc">Background on the American Committee for Interoperable Systems and guidance for using its records.</p>
     </div>
   </div>
+
+  <div class="wrap doc-layout">
+    <nav class="toc" aria-label="On this page">
+      <p class="label">On this page</p>
+      <ol>
+        <li><a href="#history">Historical Note</a></li>
+        <li><a href="#legacy">Legacy of ACIS</a></li>
+        <li><a href="#scope">Scope &amp; Content</a></li>
+        <li><a href="#arrangement">Arrangement</a></li>
+        <li><a href="#access">Access &amp; Use</a></li>
+        <li><a href="#citing">Citing Materials</a></li>
+        <li><a href="#project">About This Site</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <section id="history">
+        <h2>Historical Note</h2>
+        <p>The American Committee for Interoperable Systems (ACIS) was an organization of technology companies that advocated for the interoperability of computer systems and software.</p>
+        <p>ACIS took part in public debate over how copyright law should treat software interfaces and reverse engineering, filing amicus briefs in appellate litigation and submitting comments to government bodies. Its founding and advocacy are described in <a href="#legacy">The Legacy of ACIS</a> below.</p>
+      </section>
+
+      <section id="legacy">
+        <h2>The Legacy of ACIS</h2>
+        <p>In the early 1990s, software developers faced a consequential question: who could make a product work with a computer system controlled by another company? Compatibility often depended on understanding an existing program’s interfaces: the rules through which programs exchange information or respond to commands. A developer might need to study a program closely, sometimes through reverse engineering, before building an independent product that could communicate with it. The American Committee for Interoperable Systems (ACIS) formed to defend room for that work in intellectual property law.</p>
+        <p>ACIS took shape at a December 1991 meeting at Sun Microsystems, chaired by Sun’s deputy general counsel, Peter M. C. Choy. It was an informal association rather than a standards body. Its participants included companies developing hardware and software intended to operate with systems made by others. The breadth of its membership mattered: interoperability was a practical concern for chip makers, computer manufacturers, software firms, and smaller developers alike. Their products could succeed or fail according to whether they were permitted to connect with systems already in widespread use.</p>
+
+        <h3>The principles ACIS advanced</h3>
+        <dl class="principles">
+          <div><dt>Protection for original software</dt><dd>ACIS supported intellectual property protection that rewarded developers for creating new programs.</dd></div>
+          <div><dt>Access to functional interfaces</dt><dd>It argued that copyright should not give a program’s owner exclusive control over the rules and specifications another developer needed to achieve compatibility.</dd></div>
+          <div><dt>Reverse engineering for interoperability</dt><dd>ACIS defended the study of lawfully obtained software to discover how systems communicate, including the incidental copying that such study could require.</dd></div>
+          <div><dt>Independent, compatible products</dt><dd>Developers, it argued, should be able to use what they learned to create their own implementations, whether those products complemented or competed with an established system.</dd></div>
+          <div><dt>Competition in connected markets</dt><dd>ACIS warned that control over a widely used interface could become control over which other products were able to enter a market.</dd></div>
+        </dl>
+        <p>These positions drew a distinction between protecting a company’s original implementation and allowing others to understand the functional means of connecting with it. For ACIS, compatibility was part of the process by which software improved: developers could make new tools, serve users of existing systems, and offer alternatives without having to reproduce the original product.</p>
+
+        <h3>In the courts</h3>
+        <p>ACIS pressed its case in the courts. It submitted or joined briefs in disputes over software interfaces, compatibility, and reverse engineering, including <i>Sega Enterprises v. Accolade</i>, <i>Lotus Development v. Borland</i>, <i>Apple Computer v. Microsoft</i>, and <i>Sony Computer Entertainment v. Connectix</i>. The cases raised different legal questions, but each touched on the boundary between a company’s rights in its software and another developer’s ability to make something that worked with it. ACIS’s briefs brought the practical concerns of developers and users into proceedings between individual litigants. The decisions belong to the courts and cannot be credited to ACIS alone; the committee’s documented contribution was to argue consistently for compatibility when those legal boundaries were being tested.</p>
+        <p><a class="text-link" href="browse.html?type=amicus-briefs">Browse the Amicus Briefs series →</a></p>
+
+        <h3>Policy and legislation</h3>
+        <p>Its work extended beyond litigation. In a 1992 communication to the incoming Clinton administration, ACIS urged policymakers to consider interoperability, fair competition, and open systems alongside strong intellectual property protection. As plans for a national and global information infrastructure developed, ACIS entered debates over who would control the interfaces connecting networks, devices, and services. The issue was particularly important where an interface had become a practical gateway to a market. A company that controlled that gateway could influence which competing products were able to participate.</p>
+        <p>The same concern arose during the debate over the Digital Millennium Copyright Act. ACIS and the Computer &amp; Communications Industry Association warned that restrictions on bypassing technological locks could obstruct legitimate efforts to discover how programs communicate. Congress ultimately included a provision addressing reverse engineering for interoperability in section 1201(f) of the Act. ACIS and its allies also challenged other proposals they believed could restrict compatible development, including approaches to software licensing and database protection. Their advocacy reached international discussions as well, with ACIS supporting interoperability provisions in countries including Japan, Korea, and the Philippines.</p>
+
+        <h3>A lasting connection to software innovation</h3>
+        <p>The principles ACIS advanced remained relevant as software development changed. A compatible program can allow users to retain access to existing files or systems while choosing a new tool. It can let a smaller developer build on an established platform, or let a competitor offer a different implementation of a familiar function. Those possibilities help explain why disputes over interfaces concern more than the companies immediately involved: they affect how easily new software can enter an established computing environment.</p>
+        <p>The connection to open source is indirect. Open-source software developed through its own communities, projects, and licensing practices; ACIS was not its founder or representative. But open-source developers, like the companies ACIS represented, have needed to implement interfaces, exchange data with proprietary systems, and build compatible alternatives. The Open Source Initiative later made the importance of shared interfaces central to its arguments in <i>Google v. Oracle</i>. ACIS’s earlier filings belong to the history of the legal questions that those developers continued to face. Later briefs in the same dispute cited ACIS’s 1991 principles, although the Supreme Court decided the case on fair use grounds rather than resolving every question about the copyright status of interfaces.</p>
+        <p>ACIS’s legacy is therefore found in both its particular interventions and the durable question linking them. Its statements, correspondence, policy comments, and court briefs show how developers argued for the freedom to connect independent products to existing systems while preserving protection for original software. Its views were contested, and the law has not answered every interoperability question in the same way. Yet the problem ACIS identified remains familiar: innovation depends in part on whether the next developer can understand enough of an existing system to make something new that works with it.</p>
+
+        <h3>Further reading</h3>
+        <ul class="reading">
+          <li>Jonathan Band &amp; Masanobu Katoh, <i>Interfaces on Trial: Intellectual Property and Interoperability in the Global Software Industry</i> (Westview Press, 1995).</li>
+          <li>Jonathan Band &amp; Masanobu Katoh, <i>Interfaces on Trial 2.0</i> (MIT Press, 2011). <a href="https://mitpress.mit.edu/books/interfaces-trial-20">Open access edition</a></li>
+        </ul>
+      </section>
+
+      <section id="scope">
+        <h2>Scope &amp; Content</h2>
+        <p>The collection documents ACIS's advocacy and organizational work. It includes amicus curiae briefs, minutes and notes of committee meetings, correspondence with members, allied organizations, and government offices, formal comments submitted in regulatory and standards proceedings, and reports, newsletters, and other organizational records.</p>
+      </section>
+
+      <section id="arrangement">
+        <h2>Arrangement</h2>
+        <p>The records are arranged in five series by material type.</p>
+        <table class="series-table">
+          <thead><tr><th scope="col">Series</th><th scope="col">Title</th><th scope="col">Items</th></tr></thead>
+          <tbody id="series-table"></tbody>
+        </table>
+      </section>
+
+      <section id="access">
+        <h2>Access &amp; Use</h2>
+        <p>The collection is open for research. Digitized materials are made available for personal, educational, and research use. Permission from the Robert Crown Law Library is required to publish or reproduce materials for other purposes. For permission requests, please <a href="contact.html">contact the library</a>.</p>
+      </section>
+
+      <section id="citing">
+        <h2>Citing Materials</h2>
+        <p>Each item page provides a recommended citation in Chicago and Bluebook formats, along with a permanent URL (PURL) in the Stanford Digital Repository. Please cite the PURL rather than the address shown in your browser.</p>
+      </section>
+
+      <section id="project">
+        <h2>About This Site</h2>
+        <p>The ACIS Digital Archive is developed by the Robert Crown Law Library at Stanford Law School. Digitized objects are preserved in the Stanford Digital Repository (SDR), and Ask the Archive is powered by an AI discovery tool that searches the collection and cites the items it draws on.</p>
+      </section>
+    </div>
+
+    <aside class="doc-rail" aria-label="Collection summary">
+      <div class="facts">
+        <h2>Collection Summary</h2>
+        <dl>
+          <div><dt>Creator</dt><dd>American Committee for Interoperable Systems</dd></div>
+          <div><dt>Dates</dt><dd>1991–2001</dd></div>
+          <div><dt>Extent</dt><dd>95 items in 5 series</dd></div>
+          <div><dt>Language</dt><dd>English</dd></div>
+          <div><dt>Repository</dt><dd>Robert Crown Law Library, Stanford Law School</dd></div>
+          <div><dt>Access</dt><dd>Open for research</dd></div>
+        </dl>
+      </div>
+      <div class="aside-box">
+        <h2>Browse the series</h2>
+        <ul class="rail-links">
+          <li><a href="browse.html?type=amicus-briefs">Amicus Briefs</a></li>
+          <li><a href="browse.html?type=meeting-notes">Meeting Notes</a></li>
+          <li><a href="browse.html?type=letters">Letters</a></li>
+          <li><a href="browse.html?type=comments">Comments</a></li>
+          <li><a href="browse.html?type=other">Other</a></li>
+        </ul>
+      </div>
+      <div class="aside-box">
+        <h2>Questions?</h2>
+        <p>For research help or permissions, <a href="contact.html">contact the Robert Crown Law Library</a>.</p>
+      </div>
+    </aside>
+  </div>
+
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p class="site-footer__id">ACIS Digital Archive</p>
-        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+        <h2>ACIS Digital Archive</h2>
+        <p>A digital collection of the Robert Crown Law Library, Stanford Law School. Digitized objects are preserved in the Stanford Digital Repository.</p>
       </div>
-      <nav aria-label="Footer">
-        <ul class="site-footer__nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="browse.html">Browse Archive</a></li>
+      <nav aria-label="Explore">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="browse.html?type=amicus-briefs">Amicus Briefs</a></li>
+          <li><a href="browse.html?type=letters">Letters</a></li>
           <li><a href="ask.html">Ask the Archive</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Using the collection">
+        <h2>Using the Collection</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#access">Access &amp; Use</a></li>
+          <li><a href="about.html#citing">Citing Materials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    </div>
-    <div class="site-footer__bottom">
-      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+      <div>
+        <h2><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></h2>
+        <address>559 Nathan Abbott Way<br />Stanford, CA 94305-8610<br /><a href="mailto:reference@law.stanford.edu">reference@law.stanford.edu</a><br />650-725-0800</address>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<footer class="sls-footer" aria-label="Stanford Law School">
+  <div class="wrap sls-footer__grid">
+    <div class="sls-footer__id">
+      <a class="sls-footer__wordmark" href="https://law.stanford.edu/">Stanford<br />Law School</a>
+      <address>Crown Quadrangle<br />559 Nathan Abbott Way<br />Stanford, CA 94305-8610</address>
+      <p class="sls-footer__phone"><b>Phone:</b> <a href="tel:+16507232465">650.723.2465</a><br /><b>Fax:</b> 650.725.0253</p>
+      <ul class="sls-footer__social">
+          <li><a href="https://x.com/stanfordlaw" aria-label="Follow Stanford Law School on X" title="Follow Stanford Law School on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5 19 19.5M19 4.5 5 19.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://www.facebook.com/StanfordLawSchool" aria-label="Follow Stanford Law School on Facebook" title="Follow Stanford Law School on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.youtube.com/user/stanfordlawschool" aria-label="Follow Stanford Law School on YouTube" title="Follow Stanford Law School on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" fill="currentColor"/><path d="m10 9 5 3-5 3z" fill="#2b2f31"/></svg></a></li>
+          <li><a href="https://instagram.com/stanfordlawschool/" aria-label="Follow Stanford Law School on Instagram" title="Follow Stanford Law School on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.8" cy="7.2" r="1.2" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/stanford-law-school" aria-label="Follow Stanford Law School on LinkedIn" title="Follow Stanford Law School on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8M6.5 6.2v.1M11 18v-4.6c0-1.9 1.1-3.1 2.7-3.1s2.3 1.1 2.3 3V18M11 10v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://law.stanford.edu/rss-feeds/" aria-label="Stanford Law School RSS feeds" title="Stanford Law School RSS feeds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11a8 8 0 0 1 8 8M5 5.5A13.5 13.5 0 0 1 18.5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="6" cy="18" r="1.6" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+      <nav aria-label="I am">
+        <h2>I am …</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/i-am-a-future-student/">Future Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-current-student/">Current Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-staff-member/">I am a Staff Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-faculty-member/">I am a Faculty Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-alum/">Alum</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-employer/">Employer</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-journalist/">Journalist</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="About">
+        <h2>About</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/about/">About SLS</a></li>
+          <li><a href="https://law.stanford.edu/aba-required-disclosures/">ABA-Required Disclosures</a></li>
+          <li><a href="https://law.stanford.edu/visiting-campus/">Visiting Campus</a></li>
+          <li><a href="https://www.stanford.edu/site/accessibility">Web Accessibility</a></li>
+          <li><a href="https://law.stanford.edu/website-feedback/">Website Feedback</a></li>
+          <li><a href="https://law.stanford.edu/giving/">Giving at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Education">
+        <h2>Education</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/education/degrees/">Degrees</a></li>
+          <li><a href="https://law.stanford.edu/education/courses/">Courses</a></li>
+          <li><a href="https://law.stanford.edu/education/jd-graduation-information/">JD Graduation Audit and Information</a></li>
+          <li><a href="https://law.stanford.edu/executive-education/">Executive Education</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/research/faculty-research/">Faculty Research</a></li>
+          <li><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></li>
+          <li><a href="https://law.stanford.edu/publications/">Publications</a></li>
+          <li><a href="https://law.stanford.edu/organizations/?page=1&amp;tax_and_terms=311">Student Journals</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Community and Careers">
+        <h2>Community</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/community/student-life/">Student Life</a></li>
+          <li><a href="https://law.stanford.edu/events">Events</a></li>
+          <li><a href="https://law.stanford.edu/directory/?tax_and_terms=1067&amp;page=1">Faculty Directory</a></li>
+          <li><a href="https://law.stanford.edu/organizations/">Organizations</a></li>
+        </ul>
+        <h2>Careers</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/careers/career-possibilities/">Legal Careers</a></li>
+          <li><a href="https://law.stanford.edu/office-of-human-resources/job-announcements/">Jobs at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="News and Media">
+        <h2>News &amp; Media</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/media/">News Center</a></li>
+          <li><a href="https://law.stanford.edu/press">Media Coverage</a></li>
+          <li><a href="https://law.stanford.edu/blog/">SLS Blogs</a></li>
+          <li><a href="https://law.stanford.edu/stanford-lawyer-magazine/">Stanford Lawyer Magazine</a></li>
+          <li><a href="https://law.stanford.edu/media/video-center/">Video Center</a></li>
+          <li><a href="https://law.stanford.edu/social-media/">Social Media Hub</a></li>
+          <li><a href="https://law.stanford.edu/media/sls-newsletters/">SLS Newsletters</a></li>
+        </ul>
+      </nav>
+  </div>
+</footer>
+
+<div class="global-footer">
+  <div class="wrap">
+    <a class="global-footer__brand" href="https://www.stanford.edu">Stanford<small>University</small></a>
+    <div class="global-footer__body">
+      <ul class="global-footer__primary">
+        <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+        <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+        <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+        <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+      </ul>
+      <ul class="global-footer__secondary">
+        <li><a href="https://www.stanford.edu/site/terms/">Terms of Use</a></li>
+        <li><a href="https://www.stanford.edu/site/privacy/">Privacy</a></li>
+        <li><a href="https://uit.stanford.edu/security/copyright-infringement">Copyright</a></li>
+        <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4">Trademarks</a></li>
+        <li><a href="https://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/">Non-Discrimination</a></li>
+        <li><a href="https://www.stanford.edu/site/accessibility">Accessibility</a></li>
+      </ul>
+      <p class="global-footer__copy">© Stanford University, Stanford, California 94305.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js?v=47"></script>
+<script src="js/ui.js?v=47"></script>
+<script src="js/main.js?v=47"></script>
+<script src="js/about.js?v=47"></script>
 </body>
 </html>

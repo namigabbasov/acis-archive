@@ -3,104 +3,153 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ACIS Digital Archive — American Committee for Interoperable Systems</title>
-<meta name="description" content="Digital archive of materials documenting the history and advocacy of the American Committee for Interoperable Systems (ACIS), Stanford Law School." />
-<link rel="stylesheet" href="css/style.css?v=25" />
+<title id="page-title">ACIS Digital Archive | Robert Crown Law Library</title>
+<meta name="description" content="Records of the American Committee for Interoperable Systems (ACIS), 1991–2001: amicus briefs, meeting notes, correspondence, and formal comments. A digital collection of the Robert Crown Law Library, Stanford Law School." />
+<link rel="icon" type="image/png" href="images/favicon.png" />
+<link rel="apple-touch-icon" href="images/favicon.png" />
+<link rel="stylesheet" href="css/style.css?v=47" />
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
-<header class="site-header">
-  <div class="institutional-bar">
-    <div class="wrap institutional-bar__inner">
-      <img class="institutional-bar__logo" src="images/logo.png" alt="Stanford Law School — Robert Crown Law Library" />
-      <h1 class="masthead__title"><a href="index.html">ACIS</a> Digital Archive</h1>
-    </div>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="masthead__brand" href="index.html">
+      <img class="masthead__logo" src="images/logo.png" alt="Stanford Law School, Robert Crown Law Library" />
+      <span class="masthead__title">
+        <span class="masthead__name">ACIS Digital Archive</span>
+        <span class="masthead__sub">Records of the American Committee for Interoperable Systems</span>
+      </span>
+    </a>
   </div>
-  <nav class="primary-nav" id="primary-nav" aria-label="Primary">
-    <div class="wrap">
-      <ul class="primary-nav__list">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="browse.html">Browse Archive</a></li>
-        <li><a href="ask.html">Ask the Archive</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
-        Menu
-      </button>
-    </div>
-  </nav>
 </header>
+
+<nav class="primary-nav" id="primary-nav" aria-label="Primary">
+  <div class="wrap">
+    <ul class="primary-nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="browse.html">Browse</a></li>
+        <li><a href="ask.html">Ask the Archive</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
+      <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
+      Menu
+    </button>
+  </div>
+</nav>
 
 <main id="main">
 
   <section class="hero">
     <div class="wrap hero__inner">
-      <div class="hero__content">
-        <h2 class="hero__title">American Committee for Interoperable Systems</h2>
-        <p class="hero__desc">Explore archival materials documenting the history, activities, advocacy, and intellectual work of the American Committee for Interoperable Systems.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="browse.html">Explore the Archive</a>
-          <a class="btn btn-secondary" href="ask.html">Ask the Archive</a>
+      <div>
+        <h1>American Committee for Interoperable Systems Records <span class="hero__dates">1991–2001</span></h1>
+        <p class="hero__desc">Briefs, correspondence, meeting minutes, and regulatory comments documenting a coalition of technology companies that argued for software interoperability in the courts and before policymakers.</p>
+        <form class="hero-search" action="browse.html" role="search">
+          <label class="visually-hidden" for="hero-type">Limit search to series</label>
+          <select id="hero-type" name="type">
+            <option value="">All series</option>
+            <option value="amicus-briefs">Amicus Briefs</option>
+            <option value="meeting-notes">Meeting Notes</option>
+            <option value="letters">Letters</option>
+            <option value="comments">Comments</option>
+            <option value="other">Other</option>
+          </select>
+          <label class="visually-hidden" for="hero-q">Search the collection</label>
+          <input type="search" id="hero-q" name="q" placeholder="Search 95 items by keyword, title, or date" />
+          <button type="submit"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search</span></button>
+        </form>
+        <p class="hero__try">Try:
+          <a href="browse.html?q=reverse+engineering">reverse engineering</a>,
+          <a href="browse.html?q=interfaces">interfaces</a>,
+          <a href="browse.html?q=standards">standards</a>
+        </p>
+      </div>
+      <div class="hero__collage" id="hero-collage"></div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Collection at a glance">
+    <div class="wrap">
+      <ul class="stats__list" id="stats"></ul>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="series-heading">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 id="series-heading">Browse by Series</h2>
+          <p>The collection is arranged in five series by material type, following the original order of the records.</p>
+        </div>
+        <a class="text-link" href="browse.html">Browse all items →</a>
+      </div>
+      <ul class="series-grid" id="series-grid"></ul>
+    </div>
+  </section>
+
+  <section class="section section--fog" aria-labelledby="featured-heading">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 id="featured-heading">Featured Items</h2>
+          <p>Selected documents from ACIS's litigation and policy work.</p>
         </div>
       </div>
-      <div class="hero__graphic" aria-hidden="true">
-        <span class="hero__card hero__card--1"></span>
-        <span class="hero__card hero__card--2"></span>
-        <span class="hero__card hero__card--3">
-          <span class="hero__card-tab"></span>
-          <span class="hero__card-line hero__card-line--title"></span>
-          <span class="hero__card-line hero__card-line--body"></span>
-          <span class="hero__card-line hero__card-line--short"></span>
-        </span>
-      </div>
+      <ul class="card-grid" id="featured"></ul>
     </div>
   </section>
 
-  <section class="section section-alt">
-    <div class="wrap two-col">
+  <section class="section" aria-labelledby="timeline-heading">
+    <div class="wrap">
+      <div class="section__head">
+        <div>
+          <h2 id="timeline-heading">Browse by Date</h2>
+          <p>Digitized items by year. Select a year to see its records.</p>
+        </div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section class="section section--fog" aria-labelledby="about-heading">
+    <div class="wrap split">
+      <div class="prose">
+        <h2 id="about-heading">About the Collection</h2>
+        <p>The American Committee for Interoperable Systems was a coalition of computer hardware and software companies that advocated for the ability to build products that work with other systems.</p>
+        <p>The committee's records document its participation as amicus curiae in software copyright litigation, its comments in regulatory and standards proceedings, and the internal deliberations of its members. The Robert Crown Law Library has digitized the collection to support research in intellectual property, competition law, and technology policy.</p>
+        <p>Formed in December 1991, ACIS argued in the courts, before Congress, and abroad that copyright should protect original software without giving any one company control over the interfaces others need to build compatible products. Those questions returned to the Supreme Court decades later in <i>Google v. Oracle</i>.</p>
+        <p style="display:flex;gap:1.5rem;flex-wrap:wrap;margin:0"><a class="text-link" href="about.html#legacy">The legacy of ACIS →</a><a class="text-link" href="about.html">Full collection description →</a></p>
+      </div>
+      <aside class="facts">
+        <h3>Collection Summary</h3>
+        <dl>
+          <div><dt>Creator</dt><dd>American Committee for Interoperable Systems</dd></div>
+          <div><dt>Dates</dt><dd id="facts-dates">1991–2001</dd></div>
+          <div><dt>Extent</dt><dd>95 items in 5 series</dd></div>
+          <div><dt>Language</dt><dd>English</dd></div>
+          <div><dt>Repository</dt><dd>Robert Crown Law Library, Stanford Law School</dd></div>
+          <div><dt>Access</dt><dd>Open for research. <a href="about.html#access">Terms of use</a></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="ask-band" aria-labelledby="ask-heading">
+    <div class="wrap ask-band__inner">
       <div>
-        <p class="eyebrow">About the Archive</p>
-        <h2 style="font-size:1.6rem;">A record of ACIS's history and advocacy</h2>
-        <p class="lede">This digital archive brings together historical materials associated with the American Committee for Interoperable Systems, including meeting notes, correspondence, amicus briefs, and formal comments. Materials are organized to support research into the organization's activities and its role in debates over software interoperability.</p>
-        <a class="text-link" href="about.html">Learn more about ACIS →</a>
+        <p class="label">Research Assistant</p>
+        <h2 id="ask-heading">Ask the Archive</h2>
+        <p>Ask a question in plain language. Answers cite the specific documents they draw on, so you can go straight to the source.</p>
+        <a class="btn btn-secondary" href="ask.html">Start a question</a>
       </div>
-      <div class="panel">
-        <p class="eyebrow" style="margin-bottom:0.6rem;">Prototype note</p>
-        <p style="color:var(--color-charcoal); font-size:0.95rem; margin:0;">This site is a front-end prototype built to demonstrate the intended look, feel, and navigation of the future ACIS Digital Archive. It uses mock archival records and does not connect to Omeka or the Stanford Digital Repository.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="explore-heading">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Explore the Archive</p>
-        <h2 id="explore-heading" style="font-size:1.6rem; margin-bottom:0;">Browse the ACIS collection by material type.</h2>
-      </div>
-    </div>
-    <div class="wrap">
-      <div class="category-grid" id="category-grid">
-        <!-- Populated by js/home.js -->
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt" aria-labelledby="ask-heading">
-    <div class="wrap two-col">
-      <div class="panel panel--cardinal">
-        <p class="eyebrow">Ask the Archive</p>
-        <h2 id="ask-heading" style="font-size:1.5rem;">Have a question about the ACIS collection?</h2>
-        <p style="color:var(--color-charcoal); max-width: 60ch;">Use the archive's AI-assisted discovery interface to explore the collection and find relevant archival materials.</p>
-        <a class="btn btn-primary" href="ask.html" style="margin-top:0.75rem;">Ask the Archive →</a>
-      </div>
-      <div class="sample-question">
-        <p class="sample-question__label">Try asking</p>
-        <p class="sample-question__text">“What did ACIS discuss about interoperability?”</p>
-        <a class="text-link" href="ask.html?q=What+did+ACIS+discuss+about+interoperability%3F">See the answer →</a>
-      </div>
+      <ul class="ask-band__examples">
+        <li><a href="ask.html?q=What+did+ACIS+discuss+about+interoperability%3F">“What did ACIS discuss about interoperability?”<span aria-hidden="true">→</span></a></li>
+        <li><a href="ask.html?q=Find+letters+related+to+standards+and+interoperability.">“Find letters related to standards and interoperability.”<span aria-hidden="true">→</span></a></li>
+        <li><a href="ask.html?q=What+positions+did+ACIS+take+on+reverse+engineering%3F">“What positions did ACIS take on reverse engineering?”<span aria-hidden="true">→</span></a></li>
+      </ul>
     </div>
   </section>
 
@@ -110,27 +159,146 @@
   <div class="wrap">
     <div class="site-footer__grid">
       <div>
-        <p class="site-footer__id">ACIS Digital Archive</p>
-        <p class="site-footer__meta">Robert Crown Law Library<br /><span class="brand-stanford">Stanford</span> Law School</p>
+        <h2>ACIS Digital Archive</h2>
+        <p>A digital collection of the Robert Crown Law Library, Stanford Law School. Digitized objects are preserved in the Stanford Digital Repository.</p>
       </div>
-      <nav aria-label="Footer">
-        <ul class="site-footer__nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="browse.html">Browse Archive</a></li>
+      <nav aria-label="Explore">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="browse.html">Browse</a></li>
+          <li><a href="browse.html?type=amicus-briefs">Amicus Briefs</a></li>
+          <li><a href="browse.html?type=letters">Letters</a></li>
           <li><a href="ask.html">Ask the Archive</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Using the collection">
+        <h2>Using the Collection</h2>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="about.html#access">Access &amp; Use</a></li>
+          <li><a href="about.html#citing">Citing Materials</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
-    </div>
-    <div class="site-footer__bottom">
-      Front-end prototype. Mock data only — not connected to Omeka or the Stanford Digital Repository.
+      <div>
+        <h2><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></h2>
+        <address>559 Nathan Abbott Way<br />Stanford, CA 94305-8610<br /><a href="mailto:reference@law.stanford.edu">reference@law.stanford.edu</a><br />650-725-0800</address>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="js/data.js"></script>
-<script src="js/main.js"></script>
-<script src="js/home.js"></script>
+<footer class="sls-footer" aria-label="Stanford Law School">
+  <div class="wrap sls-footer__grid">
+    <div class="sls-footer__id">
+      <a class="sls-footer__wordmark" href="https://law.stanford.edu/">Stanford<br />Law School</a>
+      <address>Crown Quadrangle<br />559 Nathan Abbott Way<br />Stanford, CA 94305-8610</address>
+      <p class="sls-footer__phone"><b>Phone:</b> <a href="tel:+16507232465">650.723.2465</a><br /><b>Fax:</b> 650.725.0253</p>
+      <ul class="sls-footer__social">
+          <li><a href="https://x.com/stanfordlaw" aria-label="Follow Stanford Law School on X" title="Follow Stanford Law School on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5 19 19.5M19 4.5 5 19.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://www.facebook.com/StanfordLawSchool" aria-label="Follow Stanford Law School on Facebook" title="Follow Stanford Law School on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21z" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.youtube.com/user/stanfordlawschool" aria-label="Follow Stanford Law School on YouTube" title="Follow Stanford Law School on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5" fill="currentColor"/><path d="m10 9 5 3-5 3z" fill="#2b2f31"/></svg></a></li>
+          <li><a href="https://instagram.com/stanfordlawschool/" aria-label="Follow Stanford Law School on Instagram" title="Follow Stanford Law School on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.8" cy="7.2" r="1.2" fill="currentColor"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/stanford-law-school" aria-label="Follow Stanford Law School on LinkedIn" title="Follow Stanford Law School on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 10v8M6.5 6.2v.1M11 18v-4.6c0-1.9 1.1-3.1 2.7-3.1s2.3 1.1 2.3 3V18M11 10v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li>
+          <li><a href="https://law.stanford.edu/rss-feeds/" aria-label="Stanford Law School RSS feeds" title="Stanford Law School RSS feeds"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11a8 8 0 0 1 8 8M5 5.5A13.5 13.5 0 0 1 18.5 19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="6" cy="18" r="1.6" fill="currentColor"/></svg></a></li>
+      </ul>
+    </div>
+      <nav aria-label="I am">
+        <h2>I am …</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/i-am-a-future-student/">Future Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-current-student/">Current Student</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-staff-member/">I am a Staff Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-faculty-member/">I am a Faculty Member</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-alum/">Alum</a></li>
+          <li><a href="https://law.stanford.edu/i-am-an-employer/">Employer</a></li>
+          <li><a href="https://law.stanford.edu/i-am-a-journalist/">Journalist</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="About">
+        <h2>About</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/about/">About SLS</a></li>
+          <li><a href="https://law.stanford.edu/aba-required-disclosures/">ABA-Required Disclosures</a></li>
+          <li><a href="https://law.stanford.edu/visiting-campus/">Visiting Campus</a></li>
+          <li><a href="https://www.stanford.edu/site/accessibility">Web Accessibility</a></li>
+          <li><a href="https://law.stanford.edu/website-feedback/">Website Feedback</a></li>
+          <li><a href="https://law.stanford.edu/giving/">Giving at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Education">
+        <h2>Education</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/education/degrees/">Degrees</a></li>
+          <li><a href="https://law.stanford.edu/education/courses/">Courses</a></li>
+          <li><a href="https://law.stanford.edu/education/jd-graduation-information/">JD Graduation Audit and Information</a></li>
+          <li><a href="https://law.stanford.edu/executive-education/">Executive Education</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Research">
+        <h2>Research</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/research/faculty-research/">Faculty Research</a></li>
+          <li><a href="https://law.stanford.edu/robert-crown-law-library/">Robert Crown Law Library</a></li>
+          <li><a href="https://law.stanford.edu/publications/">Publications</a></li>
+          <li><a href="https://law.stanford.edu/organizations/?page=1&amp;tax_and_terms=311">Student Journals</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Community and Careers">
+        <h2>Community</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/community/student-life/">Student Life</a></li>
+          <li><a href="https://law.stanford.edu/events">Events</a></li>
+          <li><a href="https://law.stanford.edu/directory/?tax_and_terms=1067&amp;page=1">Faculty Directory</a></li>
+          <li><a href="https://law.stanford.edu/organizations/">Organizations</a></li>
+        </ul>
+        <h2>Careers</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/careers/career-possibilities/">Legal Careers</a></li>
+          <li><a href="https://law.stanford.edu/office-of-human-resources/job-announcements/">Jobs at SLS</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="News and Media">
+        <h2>News &amp; Media</h2>
+        <ul>
+          <li><a href="https://law.stanford.edu/media/">News Center</a></li>
+          <li><a href="https://law.stanford.edu/press">Media Coverage</a></li>
+          <li><a href="https://law.stanford.edu/blog/">SLS Blogs</a></li>
+          <li><a href="https://law.stanford.edu/stanford-lawyer-magazine/">Stanford Lawyer Magazine</a></li>
+          <li><a href="https://law.stanford.edu/media/video-center/">Video Center</a></li>
+          <li><a href="https://law.stanford.edu/social-media/">Social Media Hub</a></li>
+          <li><a href="https://law.stanford.edu/media/sls-newsletters/">SLS Newsletters</a></li>
+        </ul>
+      </nav>
+  </div>
+</footer>
+
+<div class="global-footer">
+  <div class="wrap">
+    <a class="global-footer__brand" href="https://www.stanford.edu">Stanford<small>University</small></a>
+    <div class="global-footer__body">
+      <ul class="global-footer__primary">
+        <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+        <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+        <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+        <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+      </ul>
+      <ul class="global-footer__secondary">
+        <li><a href="https://www.stanford.edu/site/terms/">Terms of Use</a></li>
+        <li><a href="https://www.stanford.edu/site/privacy/">Privacy</a></li>
+        <li><a href="https://uit.stanford.edu/security/copyright-infringement">Copyright</a></li>
+        <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4">Trademarks</a></li>
+        <li><a href="https://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/">Non-Discrimination</a></li>
+        <li><a href="https://www.stanford.edu/site/accessibility">Accessibility</a></li>
+      </ul>
+      <p class="global-footer__copy">© Stanford University, Stanford, California 94305.</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/data.js?v=47"></script>
+<script src="js/ui.js?v=47"></script>
+<script src="js/main.js?v=47"></script>
+<script src="js/home.js?v=47"></script>
 </body>
 </html>
