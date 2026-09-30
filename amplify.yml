@@ -1,0 +1,40 @@
+version: 1
+
+# Amplify monorepo build spec. This file MUST stay at the repository root — the
+# appRoot key is what tells Amplify to publish only frontend/. Also set the
+# app's monorepo root to "frontend" in the Amplify console when creating it.
+
+applications:
+  - appRoot: frontend
+    frontend:
+      phases:
+        build:
+          commands:
+            # js/config.js ships the literal __AI_API_URL__. Substitute it from
+            # the Amplify app's per-branch AI_API_URL environment variable.
+            #
+            # Until the backend exists, an unset AI_API_URL is allowed: the
+            # placeholder becomes "" and Ask the Archive uses its local
+            # keyword fallback. Once the backend is deployed, replace the
+            # else-branch with `echo "FATAL: AI_API_URL is not set"; exit 1`
+            # (as in RCLL-Legal-Database) so a misconfigured branch fails the
+            # build instead of shipping without the AI.
+            - |
+              if [ -n "$AI_API_URL" ]; then
+                sed -i "s|__AI_API_URL__|$AI_API_URL|g" js/config.js
+                echo "Injected AI_API_URL"
+              else
+                sed -i "s|__AI_API_URL__||g" js/config.js
+                echo "AI_API_URL not set: Ask the Archive will use the local fallback"
+              fi
+            # Prove the substitution actually happened.
+            - |
+              if grep -q '__AI_API_URL__' js/config.js; then
+                echo "FATAL: placeholder still present after substitution"; exit 1
+              fi
+      artifacts:
+        baseDirectory: /
+        files:
+          - '**/*'
+      cache:
+        paths: []

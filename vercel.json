@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "if [ -n \"$AI_API_URL\" ]; then sed -i \"s|__AI_API_URL__|$AI_API_URL|g\" frontend/js/config.js && echo \"Injected AI_API_URL\"; else echo \"AI_API_URL not set: Ask the Archive will use the local fallback\"; fi",
+  "outputDirectory": "frontend"
+}

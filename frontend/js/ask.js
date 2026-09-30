@@ -8,6 +8,7 @@
 
   var config = window.ACIS_CONFIG || {};
   var endpoint = (config.askEndpoint || "").trim();
+  if (endpoint.indexOf("__") === 0) endpoint = ""; // unsubstituted deploy placeholder
   var timeoutMs = config.askTimeoutMs || 30000;
 
   var form = document.getElementById("ask-form");

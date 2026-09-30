@@ -1,0 +1,9 @@
+{
+  "name": "acis-archive-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static frontend for the ACIS Digital Archive. Exists so Amplify's monorepo root detection can read a package.json at frontend/; the site itself has no build step and no dependencies — amplify.yml only substitutes AI_API_URL into js/config.js.",
+  "scripts": {
+    "build": "echo 'No build step — static site; amplify.yml handles AI_API_URL substitution.'"
+  }
+}
